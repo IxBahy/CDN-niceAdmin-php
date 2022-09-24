@@ -50,9 +50,12 @@ if (isset($_GET["delete"])) {
                             <div class="dropdown ">
                                 <i type="button" data-bs-toggle="dropdown" aria-expanded="false" class='bx bx-dots-vertical-rounded '></i>
                                 <div class="dropdown-menu" style="min-width:40px ;">
-                                    <a class="dropdown-item text-primary" href="/odc/admin/profile.php?show=<?= $admin['id'] ?>"><i class='bx bxs-user'></i></i></i></a>
-                                    <a class="dropdown-item text-primary" href="/odc/admin/update.php?edit=<?= $admin['id'] ?>"><i class='bx bx-edit'></i></i></a>
-                                    <a class="dropdown-item text-danger" href="/odc/admin/list.php?delete=<?= $admin['id'] ?>"><i class='bx bx-trash'></i></i></a>
+                                    <?php if (auth(1, 2)) { ?>
+                                        <a class="dropdown-item text-primary" href="/odc/admin/profile.php?show=<?= $admin['id'] ?>"><i class='bx bxs-user'></i></i></i></a>
+                                        <a class="dropdown-item text-danger" href="/odc/admin/list.php?delete=<?= $admin['id'] ?>"><i class='bx bx-trash'></i></i></a>
+                                    <?php } else {
+                                    } ?>
+
                                 </div>
                         </td>
                     </tr>

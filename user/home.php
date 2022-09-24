@@ -1,7 +1,7 @@
 <?php
-include './shared/head.php';
-include './shared/header.php';
-include './shared/aside.php';
+include '../shared/head.php';
+include '../shared/header.php';
+include '../shared/aside.php';
 
 
 ?>
@@ -25,7 +25,7 @@ include './shared/aside.php';
 
 <?php
 foreach (selectAll('articales') as $article) {
-  $path = "../articales/uploads/" . $article['image'];
+  $path = "../services/uploads/" . $article['image'];
   echo "
         <div class='container mt-5'>
             <div class='card bg-secondary mx-auto mt-5' style='width: 600px;'>
@@ -40,5 +40,5 @@ foreach (selectAll('articales') as $article) {
 }
 ?>
 <?php
-include './shared/script.php';
+include '../shared/script.php';
 ?>

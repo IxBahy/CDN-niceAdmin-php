@@ -1,7 +1,7 @@
 <?php
-include '../../shared/head.php';
-include '../../shared/header.php';
-include '../../shared/aside.php';
+include '../shared/head.php';
+include '../shared/header.php';
+include '../shared/aside.php';
 
 
 
@@ -31,7 +31,7 @@ if (isset($_POST["addAdmin"])) {
     <h1>Add Lawyers</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../admin/home.php">Home</a></li>
         <li class="breadcrumb-item active">Lawyer</li>
       </ol>
     </nav>
@@ -91,5 +91,5 @@ if (isset($_POST["addAdmin"])) {
 
 
 <?php
-include '../../shared/script.php';
+include '../shared/script.php';
 ?>

@@ -1,7 +1,7 @@
 <?php
-include '../../shared/head.php';
-include '../../shared/header.php';
-include '../../shared/aside.php';
+include '../shared/head.php';
+include '../shared/header.php';
+include '../shared/aside.php';
 
 
 
@@ -23,7 +23,7 @@ if (isset($_POST["addService"])) {
         <h1>Add Service</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="../admin/home.php">Home</a></li>
                 <li class="breadcrumb-item active">Service</li>
             </ol>
         </nav>
@@ -51,5 +51,5 @@ if (isset($_POST["addService"])) {
 
 
 <?php
-include '../../shared/script.php';
+include '../shared/script.php';
 ?>

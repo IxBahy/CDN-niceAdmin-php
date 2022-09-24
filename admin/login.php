@@ -3,8 +3,6 @@ include '../shared/head.php';
 include '../functions/queries.php';
 
 
-session_start();
-
 
 if (isset($_POST["login"])) {
   $name = $_POST["userName"];
@@ -14,9 +12,12 @@ if (isset($_POST["login"])) {
   $row = mysqli_fetch_assoc($admin);
   $count = mysqli_num_rows($admin);
   if ($count == 1) {
+    $roleRow = searchById('roles', $row['role']);
     $_SESSION['admin'] = $name;
     $_SESSION['adminId'] = $row['id'];
     $_SESSION['role'] = $row['role'];
+    $_SESSION['adminImage'] = $row['image'];
+    $_SESSION['roleName'] = $roleRow['description'];
     header("location: /odc/admin/home.php ");
   } else {
     $select = "SELECT * FROM `lawyers` WHERE `name`='$name' AND `password`='$password'";
@@ -24,9 +25,11 @@ if (isset($_POST["login"])) {
     $row = mysqli_fetch_assoc($lawyer);
     $count = mysqli_num_rows($lawyer);
     if ($count == 1) {
+      $roleRow = searchById('roles', $row['role']);
       $_SESSION['admin'] = $name;
       $_SESSION['adminId'] = $row['id'];
       $_SESSION['role'] = $row['role'];
+      $_SESSION['roleName'] = $roleRow['description'];
       header("location: /odc/admin/home.php ");
     }
   }

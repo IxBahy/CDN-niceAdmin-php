@@ -1,13 +1,10 @@
 <?php
 include '../shared/head.php';
-include '../shared/header.php';
 include '../shared/aside.php';
+include '../shared/header.php';
 
 
 ?>
-
-
-
 <main id="main" class="main">
 
   <div class="pagetitle">
@@ -19,13 +16,12 @@ include '../shared/aside.php';
       </ol>
     </nav>
   </div><!-- End Page Title -->
-
   <?php
   foreach (selectAll('articales') as $article) {
-    $path = "../articales/uploads/" . $article['image'];
+    $path = "../services/uploads/" . $article['image'];
     echo "
-        <div class='container mt-5'>
-            <div class='card bg-secondary mx-auto mt-5' style='width: 600px;'>
+        <div class='container text-center mt-5'>
+            <div class='card bg-light mx-auto mt-5' style='width: 600px;'>
                 <img src='$path' class='card-img-top' >
                 <div class='card-body mt-2'>
                     <h5 class='card-title'> Title:" . $article['title'] . "</h5>
@@ -36,11 +32,6 @@ include '../shared/aside.php';
         </div>";
   }
   ?>
-
 </main><!-- End #main -->
-
-
-
 <?php
 include '../shared/script.php';
-?>

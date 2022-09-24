@@ -10,9 +10,12 @@ if (isset($_POST["login"])) {
   $row = mysqli_fetch_assoc($user);
   $count = mysqli_num_rows($user);
   if ($count == 1) {
-    header("location: odc/user/home.php ");
-  } else {
-    testMessage(false, 'login');
+    $roleRow = searchById('roles', $row['role']);
+    $_SESSION['admin'] = $name;
+    $_SESSION['adminId'] = $row['id'];
+    $_SESSION['role'] = $row['role'];
+    $_SESSION['roleName'] = $roleRow['description'];
+    header("location: user/home.php");
   }
 }
 ?>
@@ -65,7 +68,7 @@ if (isset($_POST["login"])) {
                     </div>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100" type="login">Login</button>
+                    <button class="btn btn-primary w-100" name="login">Login</button>
                   </div>
                   <div class="col-12">
                     <p class="small mb-0">Don't have account? <a href="user/userRegister.php">Create an account</a></p>

@@ -1,13 +1,12 @@
 <?php
-include '../../shared/head.php';
-include '../../shared/header.php';
-include '../../shared/aside.php';
+include '../shared/head.php';
+include '../shared/header.php';
+include '../shared/aside.php';
 
 
 if (isset($_GET["delete"])) {
     $id = $_GET["delete"];
     deleteById('lawyers', $id);
-    // header("location: /backend-training/6th-task/admins/lawyersList.php");
 }
 ?>
 ?>
@@ -20,7 +19,7 @@ if (isset($_GET["delete"])) {
         <h1>List Lawyer</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../home.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="../admin/home.php">Home</a></li>
                 <li class="breadcrumb-item active">Lawyer</li>
             </ol>
         </nav>
@@ -54,9 +53,14 @@ if (isset($_GET["delete"])) {
                             <div class="dropdown ">
                                 <i type="button" data-bs-toggle="dropdown" aria-expanded="false" class='bx bx-dots-vertical-rounded '></i>
                                 <div class="dropdown-menu" style="min-width:40px ;">
-                                    <a class="dropdown-item text-primary" href="/odc/admin/lawyer/update.php?edit=<?= $admin['id'] ?>"><i class='bx bx-edit'></i></i></a>
-                                    <a class="dropdown-item text-danger" href="/odc/admin/lawyer/list.php?delete=<?= $admin['id'] ?>"><i class='bx bx-trash'></i></i></a>
+                                    <?php if (auth(1, 2)) { ?>
+                                        <a class="dropdown-item text-primary" href="/odc/lawyer/update.php?edit=<?= $lawyer['id'] ?>"><i class='bx bx-edit'></i></i></a>
+                                        <a class="dropdown-item text-danger" href="/odc/lawyer/list.php?delete=<?= $lawyer['id'] ?>"><i class='bx bx-trash'></i></i></a>
+                                    <?php } else {
+                                    } ?>
+
                                 </div>
+
                         </td>
                     </tr>
                 <?php } ?>
@@ -68,5 +72,5 @@ if (isset($_GET["delete"])) {
 
 
 <?php
-include '../../shared/script.php';
+include '../shared/script.php';
 ?>

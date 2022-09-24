@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +33,8 @@
     <link href="/odc/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="/odc/assets/css/style.css" rel="stylesheet">
 
+    <link href="/odc/assets/css/style.css" rel="stylesheet">
 
 </head>
 
